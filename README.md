@@ -14,7 +14,7 @@
 
 ## 動作デモンストレーション
 
-![ゲームプレイデモ](screenshot_final_demo.png)
+![ゲームプレイデモ](demo/screenshot_final_demo.png)
 
 ## 起動方法
 
