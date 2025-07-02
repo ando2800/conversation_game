@@ -1,0 +1,115 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ADD8E6; /* 全体背景を空色に */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#chat-container {
+    width: 400px;
+    height: 600px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chat-log {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #eee;
+    background-color: #ADD8E6; /* チャットログ背景も全体背景と同じ色に */
+}
+
+#input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+#user-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 20px; /* 丸みを帯びた入力欄 */
+    outline: none;
+}
+
+#send-button {
+    background-color: #00b900; /* LINEの送信ボタン色 */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#send-button:hover {
+    background-color: #009900;
+}
+
+.message {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-end; /* タイムスタンプと既読マークを下に配置 */
+}
+
+.user-message {
+    display: flex; /* flexコンテナとして維持 */
+    flex-direction: column; /* 縦方向に並べる */
+    align-items: flex-end; /* 右寄せ */
+    margin-left: auto; /* 親要素内で右寄せ */
+}
+
+.user-message span {
+    background-color: #DCF8C6; /* LINEの自分の吹き出し色 */
+    padding: 8px 12px;
+    border-radius: 18px 18px 0 18px; /* 吹き出しの形をより丸く */
+    word-wrap: break-word;
+    max-width: 80%; /* 吹き出しの最大幅 */
+}
+
+.girl-message {
+    display: flex; /* flexコンテナとして維持 */
+    flex-direction: column; /* 縦方向に並べる */
+    align-items: flex-start; /* 左寄せ */
+    margin-right: auto; /* 親要素内で左寄せ */
+}
+
+.girl-message span {
+    background-color: #fff; /* LINEの相手の吹き出し色 */
+    padding: 8px 12px;
+    border-radius: 18px 18px 18px 0; /* 吹き出しの形をより丸く */
+    word-wrap: break-word;
+    max-width: 80%; /* 吹き出しの最大幅 */
+}
+
+.message-info {
+    font-size: 0.6em; /* さらに小さく */
+    color: #888;
+    margin-top: 2px; /* 吹き出しとの間隔 */
+    /* margin-right: 12px; */ /* 吹き出しの右端に合わせる */
+    white-space: nowrap; /* 折り返しを防ぐ */
+}
+
+.user-message .message-info {
+    order: unset; /* orderをリセット */
+    margin-right: 12px; /* 吹き出しの右端に合わせる */
+}
+
+.read-status {
+    font-weight: bold;
+    color: #00b900; /* 既読マークの色 */
+    margin-left: 5px;
+}
