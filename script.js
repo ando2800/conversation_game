@@ -27,11 +27,15 @@ function addMessage(message, sender) {
     const time = getCurrentTime();
     let messageHtml = `
         <div class="message ${sender}-message">
-            <span>${message}</span>
-        </div>
-        <div class="message-info">
-            <span class="timestamp">${time}</span>
-            ${sender === 'user' ? '<span class="read-status">未読</span>' : ''}
+            <div class="message-content-wrapper">
+                <div class="message-bubble">
+                    <span>${message}</span>
+                </div>
+                <div class="message-meta message-info">
+                    <span class="timestamp">${time}</span>
+                    ${sender === 'user' ? '<span class="read-status">未読</span>' : ''}
+                </div>
+            </div>
         </div>
     `;
 
@@ -68,7 +72,7 @@ function handleUserInput() {
             addMessage(girlMessage, 'girl'); // ここを'girl'に変更
 
             // 直前のユーザーメッセージに既読マークを付ける
-            const lastUserMessageInfo = chatLog.querySelector('.user-message:last-child .message-info .read-status');
+            const lastUserMessageInfo = chatLog.querySelector('.user-message .message-meta .read-status');
             if (lastUserMessageInfo) {
                 lastUserMessageInfo.innerText = '既読';
             }

@@ -61,55 +61,58 @@ body {
 
 .message {
     margin-bottom: 8px;
-    display: flex;
-    align-items: flex-end; /* タイムスタンプと既読マークを下に配置 */
+    display: block; /* Remove flex behavior from message */
 }
 
 .user-message {
-    display: flex; /* flexコンテナとして維持 */
-    flex-direction: column; /* 縦方向に並べる */
-    align-items: flex-end; /* 右寄せ */
-    margin-left: auto; /* 親要素内で右寄せ */
-}
-
-.user-message span {
-    background-color: #DCF8C6; /* LINEの自分の吹き出し色 */
-    padding: 8px 12px;
-    border-radius: 18px 18px 0 18px; /* 吹き出しの形をより丸く */
-    word-wrap: break-word;
-    max-width: 80%; /* 吹き出しの最大幅 */
+    text-align: right; /* Align the whole message block to the right */
 }
 
 .girl-message {
-    display: flex; /* flexコンテナとして維持 */
-    flex-direction: column; /* 縦方向に並べる */
-    align-items: flex-start; /* 左寄せ */
-    margin-right: auto; /* 親要素内で左寄せ */
+    text-align: left; /* Align the whole message block to the left */
 }
 
-.girl-message span {
-    background-color: #fff; /* LINEの相手の吹き出し色 */
+.message-content-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.user-message .message-content-wrapper {
+    align-self: flex-end; /* Align to the right within .message */
+}
+
+.girl-message .message-content-wrapper {
+    align-self: flex-start; /* Align to the left within .message */
+}
+
+.message-bubble {
     padding: 8px 12px;
-    border-radius: 18px 18px 18px 0; /* 吹き出しの形をより丸く */
     word-wrap: break-word;
-    max-width: 80%; /* 吹き出しの最大幅 */
+    max-width: 80%;
+}
+
+.user-message .message-bubble {
+    background-color: #DCF8C6; /* LINEの自分の吹き出し色 */
+    border-radius: 18px 18px 0 18px; /* 吹き出しの形をより丸く */
+}
+
+.girl-message .message-bubble {
+    background-color: #fff; /* LINEの相手の吹き出し色 */
+    border-radius: 18px 18px 18px 0; /* 吹き出しの形をより丸く */
 }
 
 .message-info {
-    font-size: 0.6em; /* さらに小さく */
+    font-size: 0.6em;
     color: #888;
-    margin-top: 2px; /* 吹き出しとの間隔 */
-    /* margin-right: 12px; */ /* 吹き出しの右端に合わせる */
-    white-space: nowrap; /* 折り返しを防ぐ */
+    white-space: nowrap;
+    display: flex;
+    margin-top: 2px; /* Space between bubble and info */
 }
 
 .user-message .message-info {
-    order: unset; /* orderをリセット */
-    margin-right: 12px; /* 吹き出しの右端に合わせる */
+    justify-content: flex-end; /* Align content to the right */
 }
 
-.read-status {
-    font-weight: bold;
-    color: #00b900; /* 既読マークの色 */
-    margin-left: 5px;
+.girl-message .message-info {
+    justify-content: flex-start; /* Align content to the left */
 }
